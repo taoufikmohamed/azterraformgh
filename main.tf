@@ -47,6 +47,7 @@ resource "azurerm_storage_account" "tsa" {
     environment = "dev"
   }
 }
+//Datalake resource (SP to be created in application registration with -role storage blob contributor -scope resource ) + API permission 
 resource "azurerm_storage_data_lake_gen2_filesystem" "dsys" {
   name               = "tfdatalake"
   storage_account_id = azurerm_storage_account.tsa.id
