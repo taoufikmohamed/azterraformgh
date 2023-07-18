@@ -51,7 +51,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "dsys" {
   name               = "tfdatalake"
   storage_account_id = azurerm_storage_account.tsa.id
   /*properties = {
-    hello = "aGVsbG8="
+    
   }*/
 }
 resource "azurerm_key_vault" "tfkv" {
