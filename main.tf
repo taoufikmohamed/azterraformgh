@@ -20,6 +20,7 @@ terraform {
     container_name       = "tfstate"
     key                  = "moh.terraform.tfstate"
   }
+}
 # Provider Block
 provider "azurerm" {
   features {
