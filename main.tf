@@ -65,6 +65,7 @@ resource "azurerm_key_vault" "tfkv" {
 
   sku_name = "standard"
 }
+// Policies created below (As resource)
 /*access_policy {
     tenant_id =  "var.tenant"     #service principal tenant id
     object_id =  "var.client      #service principal obj id
