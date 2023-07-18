@@ -1,4 +1,4 @@
-//Created by Azure CLI  Storage account for storing tfstate (will not be removed by terraform when you apply terraform destroy)
+//Azure CLI/Cloud shell to create Storage account for storing tfstate (will not be removed by terraform when you apply terraform destroy)
 #!/bin/bash
 
 $RESOURCE_GROUP_NAME="example name tfstate"
