@@ -4,7 +4,7 @@
 //https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure?tabs=azure-powershell
 
 # Terraform Block
-/*
+
   //  https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli
   // Backend to store current state in a blob storage
   backend "azurerm" {
@@ -13,7 +13,6 @@
     container_name       = "tfstate"
     key                  = "moh.terraform.tfstate"
   }
-}*/
 # Provider Block
 provider "azurerm" {
   features {
