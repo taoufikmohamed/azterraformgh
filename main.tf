@@ -1,12 +1,12 @@
 // Terrafor IAC to provision resources to Azure 
- // Variables are stored in tfvars and varialbes_file for deafult values 
-//Keyvault used to store sensitives data: username, password and other secrets 
+ // Variables are stored in tfvars and varialbes_file used for default values 
+//Keyvault used to store sensitives data: username, password, secrets and other creds 
 //https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure?tabs=azure-powershell
+//  https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli
+//registry.terraform.io 
 
 # Terraform Block
-
-  //  https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli
-  // Backend to store current state in a blob storage
+// Backend to store current state file in a blob storage
   backend "azurerm" {
     resource_group_name  = "tfstate"
     storage_account_name = "tfstaat"
