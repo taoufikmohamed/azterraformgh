@@ -1,8 +1,9 @@
+//Created by Azure CLI  Storage account for storing tfstate (will not be removed by terraform when you apply terraform destroy)
 #!/bin/bash
 
-$RESOURCE_GROUP_NAME="tfstate"
-$STORAGE_ACCOUNT_NAME="tfstaat$$RANDOM"
-$CONTAINER_NAME="tfstate"
+$RESOURCE_GROUP_NAME="example name tfstate"
+$STORAGE_ACCOUNT_NAME="example name tfstaat"
+$CONTAINER_NAME="example name tfstate"
 
 # Create resource group
 az group create --name "$RESOURCE_GROUP_NAME" --location "westeurope"
