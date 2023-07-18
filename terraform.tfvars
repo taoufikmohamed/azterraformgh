@@ -1,0 +1,7 @@
+subscription        = "Enter your subscriptionID"
+sec_tenant          = "Enter your tenant_id"
+client              = "Enter your client App id"
+client_secret       = "Enter your certificate"
+resource_group_name = "Name of the rg-"
+secret_name         = "username RDP to VM"
+secret_value        = "password RDP to VM"
