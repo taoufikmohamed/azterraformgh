@@ -4,7 +4,14 @@
 //https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure?tabs=azure-powershell
 //  https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli
 //registry.terraform.io 
-
+terraform {
+  required_version = ">= 1.2.0"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 2.0"
+    }
+  }
 # Terraform Block
 // Backend to store current state file in a blob storage
   backend "azurerm" {
