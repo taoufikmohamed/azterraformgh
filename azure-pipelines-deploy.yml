@@ -3,7 +3,7 @@ trigger:
   - none
 pool: TFAG
 variables: 
- subscription_id: '87b9cc88-724b-49b2-b085-2030d3921181'
+ subscription_id: 
  berg: 'tfstate' 
  bestr: 'tfstaat' 
  becont: 'tfstate' 
