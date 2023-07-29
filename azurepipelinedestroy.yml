@@ -1,0 +1,48 @@
+---
+trigger:
+  - none
+pool: TFAG
+variables: 
+ subscription_id: ''
+ berg: 'tfstate' 
+ bestr: 'tfstaat' 
+ becont: 'tfstate' 
+ bekey: 'devops.terraform.tfstate'
+
+stages:
+
+
+  - stage: tfdestroy
+    jobs:
+      - job: destroy
+        steps:
+          - task: TerraformInstaller@1
+            displayName: TF-INSTALLATION
+            inputs: 
+              terraformVersion: 'latest'
+
+          - task: TerraformTaskV4@4
+            displayName: INITIALIZATION
+            inputs:
+              provider: 'azurerm'
+              command: 'init' 
+              commandOptions: '--reconfigure'
+
+              backendServiceArm: 'tfdevops'
+              backendAzureRmResourceGroupName: 'tfstate'
+              backendAzureRmStorageAccountName: 'tfstaat'
+              backendAzureRmContainerName: 'tfstate'
+              backendAzureRmKey: 'devops.terraform.tfstate'
+          - task: TerraformTaskV4@4
+            displayName: PLAN
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              environmentServiceNameAzureRM: 'tfdevops'
+          - task: TerraformTaskV4@4
+            displayName: DESTROY
+            inputs:
+              provider: 'azurerm'
+              command: 'destroy'
+              commandOptions: '--auto-approve'
+              environmentServiceNameAzureRM: 'tfdevops'
