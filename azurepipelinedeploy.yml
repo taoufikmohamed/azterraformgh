@@ -6,7 +6,7 @@
 ---
 trigger:
   - none
-pool: TFAG
+pool: TFAG        // Self hosted agent
 variables: 
  subscription_id: '' //Your subscription ID
  berg: 'tfstate' 
