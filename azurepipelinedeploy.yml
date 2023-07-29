@@ -1,0 +1,78 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+---
+trigger:
+  - none
+pool: TFAG
+variables: 
+ subscription_id: '' //Your subscription ID
+ berg: 'tfstate' 
+ bestr: 'tfstaat' 
+ becont: 'tfstate' 
+ bekey: 'devops.terraform.tfstate'
+
+stages:
+  - stage: tfvalidate
+    jobs:
+      - job: validate
+        steps:
+          - task: TerraformInstaller@1
+            displayName: TF-INSTALLATION
+            inputs: 
+              terraformVersion: 'latest'
+
+          - task: TerraformTaskV4@4
+            displayName: INITIALIZATION
+            inputs:
+              provider: 'azurerm'
+              command: 'init' 
+              commandOptions: '--reconfigure'
+
+              backendServiceArm: 'tfdevops'
+              backendAzureRmResourceGroupName: 'tfstate'
+              backendAzureRmStorageAccountName: 'tfstaat'
+              backendAzureRmContainerName: 'tfstate'
+              backendAzureRmKey: 'devops.terraform.tfstate'
+          - task: TerraformTaskV4@4
+            displayName: VALIDATION
+            inputs:
+              provider: 'azurerm'
+              command: 'validate'
+
+  - stage: tfdeploy
+    jobs:
+      - job: deploy
+        steps:
+          - task: TerraformInstaller@1
+            displayName: TF-INSTALLATION
+            inputs: 
+              terraformVersion: 'latest'
+
+          - task: TerraformTaskV4@4
+            displayName: INITIALIZATION
+            inputs:
+              provider: 'azurerm'
+              command: 'init' 
+              commandOptions: '--reconfigure'
+
+              backendServiceArm: 'tfdevops'
+              backendAzureRmResourceGroupName: 'tfstate'
+              backendAzureRmStorageAccountName: 'tfstaat'
+              backendAzureRmContainerName: 'tfstate'
+              backendAzureRmKey: 'devops.terraform.tfstate'
+          - task: TerraformTaskV4@4
+            displayName: PLAN
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              environmentServiceNameAzureRM: 'tfdevops'
+          - task: TerraformTaskV4@4
+            displayName: DEPLOYMENT
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              commandOptions: '--auto-approve'
+              environmentServiceNameAzureRM: 'tfdevops'
