@@ -1,6 +1,5 @@
 ---
-trigger:
-  - none
+on: [push]
 pool: TFAG
 variables:
  berg: 'tfstate' 
