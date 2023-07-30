@@ -82,7 +82,7 @@ stages:
             displayName: Waiting for APPROVAL
             timeoutInMinutes: 60
             inputs:
-              notifyUsers: 'taoufik.m.mohamed@hotmail.com'
+              notifyUsers: 'username@domain.com'
               instructions: 'Review'
               environmentServiceNameAzureRM: 'tfdevops'
               backendServiceArm: 'tfdevops'
