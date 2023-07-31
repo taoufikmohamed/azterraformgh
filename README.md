@@ -18,4 +18,8 @@
 
 Using Classic pipeline GUI
 
-![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/c645fa5f-9856-4074-acd7-ad6bd0952681)
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/ac4b07c8-f8c9-4b88-afc7-cdc1c6321c5b)
+
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/8b66364e-df0c-4c4a-98bd-fafdf7779bb3)
+
+
