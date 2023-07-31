@@ -16,3 +16,6 @@
 
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/b5e55e10-cb0d-4f4c-a7a9-6eec012088e1)
 
+Using Classic pipeline GUI
+
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/c645fa5f-9856-4074-acd7-ad6bd0952681)
