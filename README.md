@@ -16,8 +16,12 @@
 
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/b5e55e10-cb0d-4f4c-a7a9-6eec012088e1)
 
-Using Classic pipeline GUI
+# Using Classic pipeline GUI
+Azure Release pipeline for provisioning and destroying your resources when not needed (Cost saving) 
 
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/07e23c5d-331e-4637-9635-01ecc843990b)
+
+# Provisioning Resources Tasks
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/ac4b07c8-f8c9-4b88-afc7-cdc1c6321c5b)
 
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/8b66364e-df0c-4c4a-98bd-fafdf7779bb3)
