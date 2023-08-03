@@ -6,7 +6,9 @@
 
 -TFVARS (To be filled with your own attributes)/
 
-![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/dc661b14-5cc9-4d19-b0e9-51b1741c8160)
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/ce06de44-3e96-493f-ad2f-c42dc167aeb7)
+
+
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/6db32142-01b5-4c92-8d32-bd2c87c69136)
 
 
