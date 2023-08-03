@@ -1,3 +1,4 @@
+
 // Terrafor IAC to provision resources to Azure 
  // Variables are stored in tfvars and varialbes_file used for default values 
 //Keyvault used to store sensitives data: username, password, secrets and other creds 
@@ -64,11 +65,11 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "dsys" {
   }*/
 }
 resource "azurerm_key_vault" "tfkv" {
-  name                        = "tfkv011"
+  name                        = "tfkvault"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
   enabled_for_disk_encryption = true
-  tenant_id                   = data.azurerm_client_config.current.tenant_id 
+  tenant_id                   = data.azurerm_client_config.current.tenant_id #"ef80a7c8-e662-4d93-8648-c458911e6f5f"
   #soft_delete_retention_days  = 7
   #purge_protection_enabled    = false
 
@@ -167,6 +168,32 @@ resource "azurerm_subnet" "sub" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+# Create public IPs
+resource "azurerm_public_ip" "tf_publicip" {
+  name                = "tf-pip"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Dynamic"
+}
+# Network Security Group Inbound RDP rules
+resource "azurerm_network_security_group" "tf_nsg" {
+  name                = "tf-nsg"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  security_rule {
+    name                       = "RDP"
+    priority                   = 1000
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "3389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+# NIC Creation
 resource "azurerm_network_interface" "nic" {
   name                = "tf-nic"
   location            = azurerm_resource_group.rg.location
@@ -176,8 +203,20 @@ resource "azurerm_network_interface" "nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.sub.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.tf_publicip.id
+   }
+   depends_on = [
+        azurerm_public_ip.tf_publicip,
+        azurerm_virtual_network.vnet,
+      ]  
   }
-}
+
+# Connect the security group to the network interface
+resource "azurerm_network_interface_security_group_association" "tf_nic_ass" {
+    network_interface_id = azurerm_network_interface.nic.id 
+    network_security_group_id = azurerm_network_security_group.tf_nsg.id
+ 
+ }
 
 resource "azurerm_windows_virtual_machine" "tfvm" {
   name                = "${var.prefix}-vm"
@@ -202,6 +241,5 @@ resource "azurerm_windows_virtual_machine" "tfvm" {
     version   = "latest"
   }
 }
-
 
 
