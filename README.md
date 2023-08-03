@@ -6,10 +6,11 @@
 
 -TFVARS (To be filled with your own attributes)/
 
-![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/ce06de44-3e96-493f-ad2f-c42dc167aeb7)
-
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/21f56120-fd93-44e1-bebb-884c1ca6ea44)
 
 ![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/6db32142-01b5-4c92-8d32-bd2c87c69136)
+
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/1fbb1b65-fff2-4f81-936a-13c3fabda547)
 
 
 # YML Pipelines
