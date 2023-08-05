@@ -31,7 +31,8 @@
 
 Azure Release Pipeline  in 2 stages for provisioning and manual destruction of the resources (in case not needed "Cost saving") 
 
-![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/07e23c5d-331e-4637-9635-01ecc843990b)
+![image](https://github.com/taoufikmohamed/azterraformgh/assets/26463859/0276ad62-4516-4385-b517-d313b306a0b7)
+
 
 # Provisioning Resources Tasks
 
